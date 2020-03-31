@@ -30187,42 +30187,45 @@ class Carousel extends _react.default.Component {
 
 var _default = Carousel;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"Modal.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"Modal.tsx":[function(require,module,exports) {
 "use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  result["default"] = mod;
+  return result;
+};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+const react_1 = __importStar(require("react"));
 
-var _reactDom = require("react-dom");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+const react_dom_1 = require("react-dom");
 
 const modalRoot = document.getElementById("modal");
 
 const Modal = ({
   children
 }) => {
-  const elRef = (0, _react.useRef)(null);
+  const elRef = react_1.useRef(document.createElement("div"));
+  react_1.useEffect(() => {
+    if (!modalRoot) {
+      return;
+    }
 
-  if (!elRef.current) {
-    elRef.current = document.createElement("div");
-  }
-
-  (0, _react.useEffect)(() => {
     modalRoot.appendChild(elRef.current);
-    return () => modalRoot.removeChild(elRef.current);
+    return () => {
+      modalRoot.removeChild(elRef.current);
+    };
   }, []);
-  return (0, _reactDom.createPortal)(_react.default.createElement("div", null, children), elRef.current);
+  return react_dom_1.createPortal(react_1.default.createElement("div", null, children), elRef.current);
 };
 
-var _default = Modal;
-exports.default = _default;
+exports.default = Modal;
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"ErrorBoundary.js":[function(require,module,exports) {
 "use strict";
 
@@ -30399,7 +30402,7 @@ class Details extends _react.default.Component {
 function DetailsErrorBoundary(props) {
   return _react.default.createElement(_ErrorBoundary.default, null, _react.default.createElement(Details, props));
 }
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Carousel":"Carousel.js","./Modal":"Modal.js","./ErrorBoundary":"ErrorBoundary.js","./ThemeContext":"ThemeContext.js"}],"useDropdown.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Carousel":"Carousel.js","./Modal":"Modal.tsx","./ErrorBoundary":"ErrorBoundary.js","./ThemeContext":"ThemeContext.js"}],"useDropdown.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30672,7 +30675,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43423" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41243" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
